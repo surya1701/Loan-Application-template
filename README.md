@@ -4,6 +4,7 @@ A simple loan application template using logistic regression to approve/disappro
 Dataset: https://www.kaggle.com/altruistdelhite04/loan-prediction-problem-dataset
 
 ## How to Deploy
+After cloning the repo.
 ```console
 foo@bar:~$ pip install -r requirements.txt
 foo@bar:~$ pip install psycopg2
@@ -23,6 +24,7 @@ DATABASES = {
 }
 ```
 ```console
+foo@bar:~$ python manage.py collectstatic
 foo@bar:~$ python manage.py makemigrations
 foo@bar:~$ python manage.py migrate
 foo@bar:~$ python manage.py runserver
