@@ -1,0 +1,138 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Home</title>
+  <meta charset="utf-8">
+  <link rel="icon" href="{% static 'index/images/logo.png' %}">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,700,900">
+  <link rel="stylesheet" href="{% static 'index/fonts/icomoon/style.css' %}">
+
+  <link rel="stylesheet" href="{% static 'index/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'index/css/magnific-popup.css' %}">
+  <link rel="stylesheet" href="{% static 'index/css/jquery-ui.css' %}">
+  <link rel="stylesheet" href="{% static 'index/css/owl.carousel.min.css' %}">
+  <link rel="stylesheet" href="{% static 'index/css/owl.theme.default.min.css' %}">
+  <link rel="stylesheet" href="{% static 'index/css/aos.css' %}">
+  <link rel="stylesheet" href="{% static 'index/css/style.css' %}">
+
+</head>
+
+<body>
+
+  <div class="site-wrap">
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+
+    <header class="site-navbar py-4" role="banner" id="head">
+
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-3">
+            <h1 class="site-logo"><a href="" class="h2">LoanPred<span class="text-primary">.</span> </a></h1>
+          </div>
+          <div class="col-9">
+            <nav class="site-navigation position-relative text-right text-md-right" role="navigation">
+              <div class="d-block d-lg-none ml-md-0 mr-auto"><a href="#"
+                  class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+
+              <ul class="site-menu js-clone-nav d-none d-lg-block">
+                <li class="active">
+                  <a href="">Home</a>
+                </li>
+                <li><a href="#foot">About</a></li>
+                {% if request.user.is_authenticated %}
+                <li><a href="form">Loan Application</a></li>
+                <li><a href="logout">Logout</a></li>
+                {% else %}
+                <li><a href="login">Login</a></li>
+                <li><a href="register">Register</a></li>
+                {% endif %}
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="container pt-5 hero">
+      <div class="row align-items-center text-center text-md-left">
+
+        <div class="col-lg-6">
+          <h1 class="mb-3 display-3">Welcome</h1>
+          {% if request.user.is_authenticated %}
+          <h1 class="mb-3 display-3">{{request.user.first_name}} {{request.user.last_name}}</h1>
+          <p>Check if you can apply for loan with ease at LoanPred. Fill the form from the link above and get your prediction</p>
+          {% else %}
+          <h1 class="mb-3 display-3">Please Login</h1>
+          <p>Check if you can apply for loan with ease at LoanPred. Login to fill the form from the link above and get your prediction</p>
+          {% endif %}
+        </div>
+        <div class="col-lg-6">
+          <img src="{% static 'index/images/1x/asset-2.png' %}" alt="Image" class="img-fluid text-center">
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer" id="foot">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4">
+            <h3>About Us</h3>
+            <p>Project made by : ...</p>
+          </div>
+          <div class="col-lg-3 mx-auto">
+            <h3>Navigation</h3>
+            <ul class="list-unstyled">
+              <li><a href="">Home</a></li>
+              <li><a href="#foot">About</a></li>
+              {% if request.user.is_authenticated %}
+              <li><a href="form">Loan Application</a></li>
+              <li><a href="logout">Logout</a></li>
+              {% else %}
+              <li><a href="login">Login</a></li>
+              <li><a href="register">Register</a></li>
+              {% endif %}
+            </ul>
+          </div>
+          <div class="col-lg-4">
+            <h3>Subscribe</h3>
+            <p>Not functional, subscribe for updates</p>
+            <form action="#" class="form-subscribe">
+              <input type="email" class="form-control mb-3" placeholder="Enter Email">
+              <input type="submit" class="btn btn-primary" value="Subscribe">
+            </form>
+          </div>
+        </div>
+
+
+      </div>
+    </footer>
+  </div>
+
+  <script src="{% static 'index/js/jquery-3.3.1.min.js' %}"></script>
+  <script src="{% static 'index/js/jquery-migrate-3.0.1.min.js' %}"></script>
+  <script src="{% static 'index/js/jquery-ui.js' %}"></script>
+  <script src="{% static 'index/js/popper.min.js' %}"></script>
+  <script src="{% static 'index/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'index/js/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'index/js/jquery.stellar.min.js' %}"></script>
+  <script src="{% static 'index/js/jquery.countdown.min.js' %}"></script>
+  <script src="{% static 'index/js/jquery.magnific-popup.min.js' %}"></script>
+  <script src="{% static 'index/js/aos.js' %}"></script>
+  <script src="{% static 'index/js/main.js' %}"></script>
+
+</body>
+
+</html>

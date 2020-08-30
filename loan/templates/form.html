@@ -1,0 +1,175 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Loan Application Form</title>
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	  <link rel="icon" href="{% static 'index/images/logo.png' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'pred/css/montserrat-font.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'pred/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css' %}">
+	<!-- Main Style Css -->
+    <link rel="stylesheet" href="{% static 'pred/css/style.css' %}"/>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,700,900">
+  <link rel="stylesheet" href="{% static 'index/fonts/icomoon/style.css' %}">
+
+  <link rel="stylesheet" href="{% static 'index/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'index/css/magnific-popup.css' %}">
+  <link rel="stylesheet" href="{% static 'index/css/jquery-ui.css' %}">
+  <link rel="stylesheet" href="{% static 'index/css/owl.carousel.min.css' %}">
+  <link rel="stylesheet" href="{% static 'index/css/owl.theme.default.min.css' %}">
+  <link rel="stylesheet" href="{% static 'index/css/aos.css' %}">
+  <link rel="stylesheet" href="{% static 'index/css/style.css' %}">
+</head>
+<body class="form-v10">
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+
+    <header class="site-navbar py-4" role="banner" id="head">
+
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-3">
+            <h1 class="site-logo"><a href="" class="h2">LoanPred<span class="text-primary">.</span> </a></h1>
+          </div>
+          <div class="col-9">
+            <nav class="site-navigation position-relative text-right text-md-right" role="navigation">
+              <div class="d-block d-lg-none ml-md-0 mr-auto"><a href="#"
+                  class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+
+              <ul class="site-menu js-clone-nav d-none d-lg-block">
+                <li>
+                  <a href="/">Home</a>
+                </li>
+                <li class="active"><a href="">Loan Application</a></li>
+                <li><a href="logout">Logout</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+	<div class="page-content">
+		<div class="form-v10-content">
+			<form class="form-detail" action="form" method="post" id="myform">
+				{% csrf_token %}
+				<div class="form-left">
+					<h2>General Infomation</h2>
+
+					<div class="form-group">
+						<div class="form-row form-row-1">
+							<input type="text" name="first_name" id="first_name" class="input-text" placeholder="First Name" value={{request.user.first_name}} readonly>
+						</div>
+						<div class="form-row form-row-2">
+							<input type="text" name="last_name" id="last_name" class="input-text" placeholder="Last Name" value={{request.user.last_name}} readonly>
+						</div>
+					</div>
+					<div class="form-row">
+						<input type="text" name="email" class="email" id="email" placeholder="Email" value={{request.user.email}} readonly>
+					</div>
+					<div class="form-row">
+							<select name="gender" required>
+								<option value="" disabled selected hidden>Gender</option>
+							    <option value="Male">Male</option>
+							    <option value="Female">Female</option>
+							</select>
+							<span class="select-btn">
+							  	<i class="zmdi zmdi-chevron-down"></i>
+							</span>
+					</div>
+					<div class="form-row">
+							<select name="married" required>
+								<option value="" disabled selected hidden>Married</option>
+							    <option value="Yes">Yes</option>
+							    <option value="No">No</option>
+							</select>
+							<span class="select-btn">
+							  	<i class="zmdi zmdi-chevron-down"></i>
+							</span>
+					</div>
+					<div class="form-row">
+							<select name="depend" required>
+								<option value="" disabled selected hidden>Dependants</option>
+							    <option value="0">0</option>
+							    <option value="1">1</option>
+							    <option value="2">2</option>
+							    <option value="3+">3+</option>
+							</select>
+							<span class="select-btn">
+							  	<i class="zmdi zmdi-chevron-down"></i>
+							</span>
+					</div>
+					<div class="form-row">
+							<select name="education" required>
+								<option value="" disabled selected hidden>Education</option>
+							    <option value="Graduate">Graduate</option>
+							    <option value="Not Graduate">Not a graduate</option>
+							</select>
+							<span class="select-btn">
+							  	<i class="zmdi zmdi-chevron-down"></i>
+							</span>
+					</div>
+					<div class="form-row">
+							<select name="self_employ" required>
+								<option value="" disabled selected hidden>Self-employed</option>
+							    <option value="Yes">Yes</option>
+							    <option value="No">No</option>
+							</select>
+							<span class="select-btn">
+							  	<i class="zmdi zmdi-chevron-down"></i>
+							</span>
+					</div>
+				</div>
+				<div class="form-right">
+					<h2>Other Details</h2>
+					<div class="form-row">
+						<input type="number" name="aincome" min="0" max="75000" placeholder="Applicant Income (0-75,000)" required>
+					</div>
+					<div class="form-row">
+						<input type="number" name="caincome" min="0" max="25000" placeholder="Co-Applicant Income (0-25,000)" required>
+					</div>
+					<div class="form-row">
+						<input type="number" name="loanamt" min="5" max="750" placeholder="Loan amount (5-750)" required>
+					</div>
+					<div class="form-row">
+						<input type="number" name="loanterm" min="5" max="500" placeholder="Loan amount term (5-500)" required>
+					</div>
+					<div class="form-row">
+							<select name="credhist" required>
+								<option value="" disabled selected hidden>Credit History</option>
+							    <option value="1">Yes</option>
+							    <option value="0">No</option>
+							</select>
+							<span class="select-btn">
+							  	<i class="zmdi zmdi-chevron-down"></i>
+							</span>
+					</div>
+					<div class="form-row">
+							<select name="area" required>
+								<option value="" disabled selected hidden>Property Area</option>
+							    <option value="Urban">Urban</option>
+							    <option value="Semiurban">Semi-urban</option>
+							    <option value="Rural">Rural</option>
+							</select>
+							<span class="select-btn">
+							  	<i class="zmdi zmdi-chevron-down"></i>
+							</span>
+					</div>
+					<div class="form-row-last">
+						<input type="submit" name="register" class="register" value="Submit">
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
